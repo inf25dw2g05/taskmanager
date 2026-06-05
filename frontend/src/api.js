@@ -23,3 +23,33 @@ export async function login(email, password) {
 
   return response.json();
 }
+
+export async function getUser() {
+  const response = await fetch(API_URL + "/users/me", {
+    headers: {
+      Authorization: "Bearer " + getToken()
+    }
+  });
+
+  return response.json();
+}
+
+export async function getProjects() {
+  const response = await fetch(API_URL + "/projects", {
+    headers: {
+      Authorization: "Bearer " + getToken()
+    }
+  });
+
+  return response.json();
+}
+
+export async function getTasks() {
+  const response = await fetch(API_URL + "/tasks", {
+    headers: {
+      Authorization: "Bearer " + getToken()
+    }
+  });
+
+  return response.json();
+}

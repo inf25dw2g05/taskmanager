@@ -3,6 +3,10 @@ import Login from "./components/Login";
 import { getToken, removeToken } from "./api";
 import "./App.css";
 
+import Profile from "./components/Profile";
+import Projects from "./components/Projects";
+import Tasks from "./components/Tasks";
+
 function App() {
   const [logged, setLogged] = useState(getToken() !== null);
 
@@ -26,7 +30,11 @@ function App() {
   return (
     <div className="App">
       <h1>TaskManager</h1>
-      <p>Usuario autenticado correctamente.</p>
+
+      <Profile />
+      <Projects />
+      <Tasks />
+
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
