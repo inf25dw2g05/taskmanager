@@ -49,7 +49,7 @@ function App() {
       <h1>TaskManager</h1>
 
       <button onClick={() => setPage("profile")}>
-        Profile
+        User Profile
       </button>
 
       <button onClick={() => setPage("projects")}>
