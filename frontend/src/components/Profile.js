@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { getUser } from "../api";
 
 function Profile() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); //info actual del usuario / actualiza el estado
 
-  useEffect(() => {
+  useEffect(() => { //permite ejecutar codigo automaticamente cuando el componente se carga (en este caso llama a la api)
     async function loadUser() {
-      const data = await getUser();
-      setUser(data);
+      const data = await getUser(); //llama api y ejecuta funcion get
+      setUser(data); // actualiza estado
     }
 
     loadUser();
-  }, []);
+  }, []); //funcion debe ejecutarse una unica vez (cuando el componente se monta)
 
   if (!user) {
     return <p>Loading...</p>;

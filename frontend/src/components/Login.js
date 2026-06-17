@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from "react"; //permite almacenar datos
 import { login, saveToken } from "../api";
 
-function Login({ onLogin }) {
+function Login({ onLogin }) { //avisa a App.js de que el login ha sido correcto
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); //evita recarga del navegador 
 
     const data = await login(email, password);
 
@@ -18,7 +18,7 @@ function Login({ onLogin }) {
     }
   }
 
-  return (
+  return ( //aqui crea la interfaz
     <div>
       <h2>Login</h2>
 

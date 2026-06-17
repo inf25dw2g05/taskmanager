@@ -9,7 +9,7 @@ function Projects() {
   const [editName, setEditName] = useState("");
   const [editDescription, setEditDescription] = useState("");
 
-  useEffect(() => {
+  useEffect(() => { //carga poyectos cuando de abre la pantalla 
     async function loadProjects() {
       const data = await getProjects();
       setProjects(data);
@@ -18,12 +18,12 @@ function Projects() {
     loadProjects();
   }, []);
 
-    async function handleSubmit(event) {
+    async function handleSubmit(event) { //crea un proyecto
     event.preventDefault();
 
-    await createProject(name, description);
+    await createProject(name, description); //llama a psot
 
-    const data = await getProjects();
+    const data = await getProjects(); //pide la lisata para actualizar
     setProjects(data);
 
     setName("");
@@ -31,19 +31,19 @@ function Projects() {
   }
 
   async function handleDelete(id) {
-  await deleteProject(id);
+  await deleteProject(id); //llama a delete
 
   const data = await getProjects();
-  setProjects(data);
+  setProjects(data); //recarga la lista
 }
 
-function startEdit(project) {
+function startEdit(project) { //guarda id del proyecto que se esta editando y copia sus valores actuales en los inputs de edicion
   setEditingId(project.id);
   setEditName(project.name);
   setEditDescription(project.description);
 }
 
-async function handleUpdate(event) {
+async function handleUpdate(event) { //guarda los cambios 
   event.preventDefault();
 
   await updateProject(editingId, editName, editDescription);

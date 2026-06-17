@@ -1,24 +1,24 @@
 const API_URL = "http://localhost:3000";
 
-export function saveToken(token) {
+export function saveToken(token) { //guarda JWT durante el login
   localStorage.setItem("token", token);
 }
 
-export function getToken() {
+export function getToken() { //recupera token para utilizarlo en peticiones protegidas
   return localStorage.getItem("token");
 }
 
-export function removeToken() {
+export function removeToken() { //utiliza durante el logout
   localStorage.removeItem("token");
 }
 
 export async function login(email, password) {
   const response = await fetch(API_URL + "/auth/login", {
-    method: "POST",
+    method: "POST", //envia peticion POST al endpoint /auth/login
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ email, password }) //Api valida creedenciales
   });
 
   return response.json();
